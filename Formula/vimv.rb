@@ -1,9 +1,9 @@
 class Vimv < Formula
-  desc "vimv is a terminal-based file rename utility that lets you easily mass-rename files using Vim"
+  desc "Terminal-based mass file renaming utility using Vim"
   homepage "https://github.com/thameera/vimv"
-  url "https://raw.githubusercontent.com/thameera/vimv/3bb51a43b75a8b0166e4e1dfe86776a9b2a131c9/vimv"
-  version "3bb51a43b75a8b0166e4e1dfe86776a9b2a131c9"
-  sha256 "08a3cfd3e6b510366a1ffb2112c3d04e5550e30741c2b0cc72ed11a1e27e4767"
+  url "https://raw.githubusercontent.com/thameera/vimv/0fec5140eeed8bba5637a9d124bf0364f010e612/vimv"
+  version "0fec5140eeed8bba5637a9d124bf0364f010e612"
+  sha256 "809e74b1dd00bad7a286489cd2e77980452e19cd9fef6d3e9bc98363f439690c"
   license "MIT"
 
   def install
@@ -11,5 +11,19 @@ class Vimv < Formula
   end
 
   test do
+    (testpath/"rename_editor").write <<~SH
+      #!/bin/bash
+      sed -i '' 's/$/.renamed/' "$1"
+    SH
+    chmod 0755, testpath/"rename_editor"
+    ENV["EDITOR"] = (testpath/"rename_editor").to_s
+
+    (testpath/"file1.txt").write("")
+    (testpath/"file2.txt").write("")
+
+    system bin/"vimv", "file1.txt", "file2.txt"
+
+    assert_path_exists testpath/"file1.txt.renamed"
+    assert_path_exists testpath/"file2.txt.renamed"
   end
 end
