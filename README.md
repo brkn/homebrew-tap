@@ -2,6 +2,6 @@
 
 ## How do I install these formulae?
 
-`brew install brkn/brew/<formula>`
+`brew install brkn/tap/<formula>`
 
-Or `brew tap brkn/brew` and then `brew install <formula>`.
+Or `brew tap brkn/tap` and then `brew install <formula>`.
