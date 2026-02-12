@@ -1,9 +1,9 @@
 class YtPlaylist < Formula
   desc "CLI tool for extracting and querying YouTube playlist metadata"
   homepage "https://github.com/brkn/yt-playlist"
-  url "https://github.com/brkn/yt-playlist/releases/download/v0.1.2/yt_playlist_macos_arm64"
-  version "0.1.2"
-  sha256 "85974f998ba106ff76afd63038a2765bb69f15b68f983d2a54b99bbedcf08714"
+  url "https://github.com/brkn/yt-playlist/releases/download/v0.1.3/yt_playlist_macos_arm64"
+  version "0.1.3"
+  sha256 "8b6167e9791892ae2c6f8677d2e5e649c74797a075a6575f8a6a34e515a667ed"
   license "MIT"
 
   depends_on "yt-dlp"
