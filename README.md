@@ -5,3 +5,7 @@
 `brew install brkn/tap/<formula>`
 
 Or `brew tap brkn/tap` and then `brew install <formula>`.
+
+## Formulae
+
+- `yt-playlist` — CLI tool for extracting and querying YouTube playlist metadata. Requires `yt-dlp` (installed automatically as a dependency).
